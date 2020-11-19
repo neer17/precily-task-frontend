@@ -2,7 +2,7 @@ import React from 'react'
 import { ResizableBox } from 'react-resizable'
 import ContentEditable from 'react-contenteditable'
 
-import { uploadContent } from './../utils/serverUpload'
+import { uploadContent, getData } from '../utils/contactServer'
 
 export default class ResizableComponent extends React.Component {
   constructor(props) {
@@ -28,6 +28,20 @@ export default class ResizableComponent extends React.Component {
       count: 0,
       executionTime: 0,
     }
+  }
+
+  componentDidMount() {
+    const key = this.props.id
+    getData(key)
+      .then(({ count, content }) => {
+        console.log(count, content)
+        if (content)
+          this.setState({
+            count,
+            html: content,
+          })
+      })
+      .catch(console.error)
   }
 
   handleChange = evt => {

@@ -7,3 +7,11 @@ export const uploadContent = async ({ key, content }) => {
   })
   return data
 }
+
+export const getData = async (key) => {
+  const {data} = await axios.post('http://localhost:8080/data', {
+    key
+  })
+
+  return data
+}
