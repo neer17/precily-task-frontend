@@ -1,38 +1,137 @@
+html {
+  height: 100vh;
+  width: 100vw;
+  font-size: 67.5%; }
+
+*, *::before, *::after {
+  box-sizing: border-box; }
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  justify-content: space-evenly;
+  width: 100vw;
+  height: 100vh; }
+  .App--row1 {
+    flex-grow: 1;
+    display: flex; }
+  .App--row2 {
+    flex-grow: 1; }
 
-.App-link {
-  color: #61dafb;
-}
+.main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.text-container {
+  flex-grow: 1;
+  font-size: 0.9vw;
+  font-weight: 500; }
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem; }
+
+.add-btn {
+  flex-grow: 1;
+  border-radius: 10px;
+  background-color: yellow;
+  padding: 10px 20px;
+  color: #535151;
+  font-weight: 500;
+  font-size: 1vw;
+  text-align: center;
+  margin: 0 1%;
+  cursor: pointer; }
+
+.update-btn {
+  flex-grow: 1;
+  background-color: green;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: #f8f4f4;
+  font-weight: 500;
+  font-size: 1vw;
+  text-align: center;
+  margin: 0 1%;
+  cursor: pointer; }
+
+.count {
+  flex-grow: 1;
+  background-color: white;
+  padding: 10px 20px;
+  color: #000000;
+  font-weight: 500;
+  font-size: 1vw;
+  text-align: center;
+  margin: 0 1%;
+  cursor: pointer; }
+
+.react-resizable {
+  position: relative; }
+
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA2IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+");
+  background-position: bottom right;
+  padding: 0 3px 3px 0; }
+
+.react-resizable-handle-sw {
+  bottom: 0;
+  left: 0;
+  cursor: sw-resize;
+  transform: rotate(90deg); }
+
+.react-resizable-handle-se {
+  bottom: 0;
+  right: 0;
+  cursor: se-resize; }
+
+.react-resizable-handle-nw {
+  top: 0;
+  left: 0;
+  cursor: nw-resize;
+  transform: rotate(180deg); }
+
+.react-resizable-handle-ne {
+  top: 0;
+  right: 0;
+  cursor: ne-resize;
+  transform: rotate(270deg); }
+
+.react-resizable-handle-w,
+.react-resizable-handle-e {
+  top: 50%;
+  margin-top: -10px;
+  cursor: ew-resize; }
+
+.react-resizable-handle-w {
+  left: 0;
+  transform: rotate(135deg); }
+
+.react-resizable-handle-e {
+  right: 0;
+  transform: rotate(315deg); }
+
+.react-resizable-handle-n,
+.react-resizable-handle-s {
+  left: 50%;
+  margin-left: -10px;
+  cursor: ns-resize; }
+
+.react-resizable-handle-n {
+  top: 0;
+  transform: rotate(225deg); }
+
+.react-resizable-handle-s {
+  bottom: 0;
+  transform: rotate(45deg); }
