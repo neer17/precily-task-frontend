@@ -30,6 +30,16 @@ html {
   flex-grow: 1;
   font-size: 0.9vw;
   font-weight: 500; }
+  .text-container--save-btn {
+    width: fit-content;
+    border-radius: 10px;
+    background-color: yellow;
+    padding: 5px 10px;
+    color: #535151;
+    font-weight: 500;
+    font-size: 1vw;
+    text-align: center;
+    cursor: pointer; }
 
 .btn-container {
   display: flex;
