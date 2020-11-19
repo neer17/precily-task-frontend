@@ -2,6 +2,8 @@ import React from 'react'
 import { ResizableBox } from 'react-resizable'
 import ContentEditable from 'react-contenteditable'
 
+import { uploadContent } from './../utils/serverUpload'
+
 export default class ResizableComponent extends React.Component {
   constructor(props) {
     super(props)
@@ -22,6 +24,9 @@ export default class ResizableComponent extends React.Component {
     Ex est ut pariatur id do.`,
       showSaveBtn: false,
       count: 0,
+      disableSaveBtn: false,
+      count: 0,
+      executionTime: 0,
     }
   }
 
@@ -36,15 +41,32 @@ export default class ResizableComponent extends React.Component {
     this.contentEditable.current.focus()
     this.setState({
       html: '',
-      showSaveBtn: true,
     })
   }
 
   updateContent = () => {
     this.contentEditable.current.focus()
-    this.setState({
-      showSaveBtn: true,
-    })
+  }
+
+  upload = () => {
+    this.setState(
+      {
+        disableSaveBtn: true,
+      },
+      async () => {
+        const data = {
+          key: this.props.id,
+          content: this.state.html,
+        }
+        const { count, executionTime } = await uploadContent(data)
+        console.info(count, executionTime)
+        this.setState({
+          disableSaveBtn: false,
+          count,
+          executionTime,
+        })
+      }
+    )
   }
 
   render = () => {
@@ -74,7 +96,9 @@ export default class ResizableComponent extends React.Component {
               />
             </div>
             {showSaveBtn && (
-              <div className="text-container--save-btn">Save</div>
+              <div className="text-container--save-btn" onClick={this.upload}>
+                Save
+              </div>
             )}
           </div>
           <div className="btn-container">
