@@ -3,7 +3,9 @@ html {
   width: 100vw;
   font-size: 67.5%; }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box; }
 
 .App {
@@ -48,40 +50,40 @@ html {
   margin-bottom: 1rem; }
 
 .add-btn {
-  flex-grow: 1;
-  border-radius: 10px;
-  background-color: yellow;
   padding: 10px 20px;
-  color: #535151;
   font-weight: 500;
   font-size: 1vw;
   text-align: center;
   margin: 0 1%;
+  flex-grow: 1;
+  background-color: yellow;
+  color: #535151;
+  border-radius: 10px;
   cursor: pointer; }
 
 .update-btn {
-  flex-grow: 1;
-  background-color: green;
-  border-radius: 10px;
   padding: 10px 20px;
-  color: #f8f4f4;
   font-weight: 500;
   font-size: 1vw;
   text-align: center;
   margin: 0 1%;
+  flex-grow: 1;
+  background-color: green;
+  color: #f8f4f4;
+  border-radius: 10px;
   cursor: pointer; }
 
 .count {
-  flex-grow: 1;
-  background-color: white;
   padding: 10px 20px;
-  color: #000000;
   font-weight: 500;
   font-size: 1vw;
   text-align: center;
   margin: 0 1%;
-  cursor: pointer; }
+  flex-grow: 1;
+  background-color: white;
+  color: #000000; }
 
+/* belongs to react-resizable npm package */
 .react-resizable {
   position: relative; }
 

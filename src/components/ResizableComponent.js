@@ -3,25 +3,17 @@ import { ResizableBox } from 'react-resizable'
 import ContentEditable from 'react-contenteditable'
 
 import { uploadContent, getData } from '../utils/contactServer'
+import { initialString } from './../utils/strings'
 
+/* 
+* Resizable component, fetching data on mounting and updating data on "save"
+*/
 export default class ResizableComponent extends React.Component {
   constructor(props) {
     super(props)
     this.contentEditable = React.createRef()
     this.state = {
-      html: `Magna nulla aute in aliquip. Aliqua in laborum deserunt aliquip
-    commodo aute aliquip id aliqua excepteur fugiat ad. Laborum aliquip
-    minim est consequat esse nostrud magna ex ex consectetur exercitation
-    do veniam. Nulla id dolor ex elit enim minim adipisicing ipsum
-    proident anim qui deserunt enim. Quis ut amet quis cupidatat. Ad
-    excepteur sunt cupidatat aliquip anim ex officia irure Lorem
-    incididunt anim deserunt qui amet. Reprehenderit culpa reprehenderit
-    velit commodo do ad elit ex irure enim incididunt aliquip laborum eu.
-    Consectetur ipsum deserunt Lorem velit fugiat consequat officia. Amet
-    exercitation do elit tempor. Aliqua cillum Lorem cupidatat fugiat. Non
-    laborum deserunt mollit aliquip dolore. Lorem amet exercitation
-    cupidatat magna in tempor occaecat ipsum duis laborum mollit deserunt.
-    Ex est ut pariatur id do.`,
+      html: initialString,
       showSaveBtn: false,
       count: 0,
       disableSaveBtn: false,
@@ -29,11 +21,11 @@ export default class ResizableComponent extends React.Component {
     }
   }
 
+  // side effect: fetching data 
   componentDidMount() {
     const key = this.props.id
     getData(key)
       .then(({ count, content }) => {
-        console.log(count, content)
         if (content)
           this.setState({
             count,
@@ -61,6 +53,7 @@ export default class ResizableComponent extends React.Component {
     this.contentEditable.current.focus()
   }
 
+  // uploading data to db, update state
   upload = () => {
     this.setState(
       {
@@ -72,7 +65,6 @@ export default class ResizableComponent extends React.Component {
           content: this.state.html,
         }
         const { count, executionTime } = await uploadContent(data)
-        console.info(count, executionTime)
         this.setState({
           disableSaveBtn: false,
           count,
@@ -123,7 +115,7 @@ export default class ResizableComponent extends React.Component {
             </div>
             <div className="count">Count: {count}</div>
           </div>
-            <div>{`Execution Time: ${executionTime}ms`}</div>
+          <div>{`Execution Time: ${executionTime}ms`}</div>
         </div>
       </ResizableBox>
     )

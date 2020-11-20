@@ -1,3 +1,11 @@
+@mixin btn-style {
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 1vw;
+  text-align: center;
+  margin: 0 1%;
+}
+
 .main-container {
   width: 100%;
   height: 100%;
@@ -32,39 +40,26 @@
 }
 
 .add-btn {
+  @include btn-style;
   flex-grow: 1;
-  border-radius: 10px;
   background-color: yellow;
-  padding: 10px 20px;
   color: #535151;
-  font-weight: 500;
-  font-size: 1vw;
-  text-align: center;
-  margin: 0 1%;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .update-btn {
+  @include btn-style;
   flex-grow: 1;
   background-color: green;
-  border-radius: 10px;
-  padding: 10px 20px;
   color: #f8f4f4;
-  font-weight: 500;
-  font-size: 1vw;
-  text-align: center;
-  margin: 0 1%;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .count {
+  @include btn-style;
   flex-grow: 1;
   background-color: white;
-  padding: 10px 20px;
   color: #000000;
-  font-weight: 500;
-  font-size: 1vw;
-  text-align: center;
-  margin: 0 1%;
-  cursor: pointer;
 }

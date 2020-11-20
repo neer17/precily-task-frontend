@@ -1,16 +1,17 @@
 import axios from 'axios'
+import { backendUrl } from './domainConfig'
 
 export const uploadContent = async ({ key, content }) => {
-  const {data} = await axios.post('http://localhost:8080/save', {
-      key,
-      content
+  const { data } = await axios.post(`${backendUrl}/save`, {
+    key,
+    content,
   })
   return data
 }
 
-export const getData = async (key) => {
-  const {data} = await axios.post('http://localhost:8080/data', {
-    key
+export const getData = async key => {
+  const { data } = await axios.post(`${backendUrl}/data`, {
+    key,
   })
 
   return data

@@ -1,6 +1,5 @@
-import { useCallback, useState, useEffect } from 'react'
+import { useState } from 'react'
 
-import logo from './logo.svg'
 import './App.css'
 
 import ResizableComponent from './components/ResizableComponent'
