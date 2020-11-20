@@ -44,7 +44,8 @@ html {
 .btn-container {
   display: flex;
   align-items: center;
-  margin-top: 1rem; }
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
 
 .add-btn {
   flex-grow: 1;

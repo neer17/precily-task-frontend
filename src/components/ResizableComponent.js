@@ -84,7 +84,7 @@ export default class ResizableComponent extends React.Component {
 
   render = () => {
     const { width, height } = this.props
-    const { showSaveBtn, count } = this.state
+    const { showSaveBtn, count, executionTime } = this.state
     return (
       <ResizableBox
         width={width}
@@ -123,6 +123,7 @@ export default class ResizableComponent extends React.Component {
             </div>
             <div className="count">Count: {count}</div>
           </div>
+            <div>{`Execution Time: ${executionTime}ms`}</div>
         </div>
       </ResizableBox>
     )
