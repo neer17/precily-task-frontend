@@ -25,7 +25,6 @@ export default class ResizableComponent extends React.Component {
       showSaveBtn: false,
       count: 0,
       disableSaveBtn: false,
-      count: 0,
       executionTime: 0,
     }
   }
