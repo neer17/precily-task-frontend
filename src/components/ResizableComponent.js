@@ -74,7 +74,7 @@ export default class ResizableComponent extends React.Component {
 
   render = () => {
     const { width, height } = this.props
-    const { showSaveBtn, count, executionTime, disableSaveBtn } = this.state
+    const { showSaveBtn, count, executionTime } = this.state
     return (
       <ResizableBox
         width={width}
