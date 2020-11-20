@@ -5,9 +5,9 @@ import ContentEditable from 'react-contenteditable'
 import { uploadContent, getData } from '../utils/contactServer'
 import { initialString } from './../utils/strings'
 
-/* 
-* Resizable component, fetching data on mounting and updating data on "save"
-*/
+/*
+ * Resizable component, fetching data on mounting and updating data on "save"
+ */
 export default class ResizableComponent extends React.Component {
   constructor(props) {
     super(props)
@@ -16,12 +16,11 @@ export default class ResizableComponent extends React.Component {
       html: initialString,
       showSaveBtn: false,
       count: 0,
-      disableSaveBtn: false,
       executionTime: 0,
     }
   }
 
-  // side effect: fetching data 
+  // side effect: fetching data
   componentDidMount() {
     const key = this.props.id
     getData(key)
@@ -57,7 +56,7 @@ export default class ResizableComponent extends React.Component {
   upload = () => {
     this.setState(
       {
-        disableSaveBtn: true,
+        showSaveBtn: false,
       },
       async () => {
         const data = {
@@ -66,7 +65,6 @@ export default class ResizableComponent extends React.Component {
         }
         const { count, executionTime } = await uploadContent(data)
         this.setState({
-          disableSaveBtn: false,
           count,
           executionTime,
         })
@@ -76,7 +74,7 @@ export default class ResizableComponent extends React.Component {
 
   render = () => {
     const { width, height } = this.props
-    const { showSaveBtn, count, executionTime } = this.state
+    const { showSaveBtn, count, executionTime, disableSaveBtn } = this.state
     return (
       <ResizableBox
         width={width}
@@ -101,7 +99,10 @@ export default class ResizableComponent extends React.Component {
               />
             </div>
             {showSaveBtn && (
-              <div className="text-container--save-btn" onClick={this.upload}>
+              <div
+                className="text-container--save-btn"
+                onClick={this.upload}
+              >
                 Save
               </div>
             )}
